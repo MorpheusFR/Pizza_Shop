@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-#from django.contrib import staticfiles
 from django.urls import path
 from pizzashopapp import views
 
@@ -28,8 +27,6 @@ from django.conf.urls.static import static
 # could be written as:
 # path('articles/<int:year>/', views.year_archive),
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
@@ -38,10 +35,10 @@ urlpatterns = [
     path('pizzashop/sign-out/', auth_views.logout, {'next_page': '/'}, name='pizzashop-sign-out'),
 
     path('pizzashop/', views.pizzashop_home, name='pizzashop-home'),
-    path('pizzashop/sign-up/', views.pizzashop_sign_up, name='pizzashop-sign-up'),
+    path('pizzashop/sign-up', views.pizzashop_sign_up, name='pizzashop-sign-up'),
 
-    path('pizzashop/account', views.pizzashop_account, name='pizzashop-account'),
-    path('pizzashop/pizza', views.pizzashop_pizza, name='pizzashop-pizza'),
-
-
+    path('pizzashop/account/', views.pizzashop_account, name='pizzashop-account'),
+    path('pizzashop/pizza/', views.pizzashop_pizza, name='pizzashop-pizza'),
+    path('pizzashop/pizza/add/', views.pizzashop_add_pizza, name='pizzashop-add-pizza'),
+    path('pizzashop/pizza/edit/<int:pizza_id>', views.pizzashop_edit_pizza, name='pizzashop-edit-pizza'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

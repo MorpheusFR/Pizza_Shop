@@ -8,6 +8,14 @@ body {
     background-color: #7B2324;
 }
 
+.bg-red {
+    background-color: #E21E25;
+}
+
+.text-white {
+    color: white;
+}
+
 .btn-red{
     color: white;
     background-color: #E21E35;
@@ -20,6 +28,7 @@ body {
 }
 
 /* SIDE BAR */
+
 .sidebar {
     height: 100vh;
     position: fixed;
@@ -31,6 +40,7 @@ body {
 }
 
 /* SIDE BAR - HEADER */
+
 .sidebar > div:first-child {
     padding: 30px 10px;
     font-weight: bold;
@@ -71,7 +81,7 @@ body {
     padding-right: 30px;
 }
 
-.sidebar .list-group .list-group-item:active,
+.sidebar .list-group .list-group-item.active,
 .sidebar .list-group .list-group-item:hover {
     background-color: #3F1E1E;
     color: #E0DEEB;
@@ -97,8 +107,23 @@ body {
 .sidebar > div:last-child .btn {
     width: 100%;
 }
-/* SIDE BAR - MENU */
+
+/* SIDE BAR - CONTENT */
 
 .content {
     padding: 0 40px;
+}
+
+.content .panel {
+    border: none;
+}
+
+.table > thead > tr > th,
+.table > thead > tr > td {
+    vertical-align: middle;
+}
+
+.table,
+.table > thead > tr > th {
+    border-color: #E31E25;
 }
