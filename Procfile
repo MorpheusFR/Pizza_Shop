@@ -1,0 +1,1 @@
+web: gunicorn Pizza_Shop.wsgi --log-file -

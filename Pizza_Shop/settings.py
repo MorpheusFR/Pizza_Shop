@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -29,7 +30,8 @@ SECRET_KEY = '=u91bn*rs^cv08ub2w4ldf2&ryskv9mh7h+8*=v81e2)+7rj7%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# * - all hosts
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -125,11 +127,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, "pizzashopapp/static"),
 #     'pizzashopapp/static'  #'/var/www/static/',
 # ]
+
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
